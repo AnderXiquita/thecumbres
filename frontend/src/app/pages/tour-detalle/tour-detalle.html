@@ -1,0 +1,90 @@
+@if (error) {
+  <div class="alert alert-danger">{{ error }}</div>
+  <a class="btn btn-outline-secondary" routerLink="/tours">Volver al listado</a>
+}
+
+@if (tour) {
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+      <a class="text-decoration-none small" routerLink="/tours">&larr; Volver a tours</a>
+      <h2 class="mb-1 mt-1">{{ tour.nombre }}</h2>
+      <span class="etiqueta me-3" [class]="infoEstado(tour.estado).clase">{{ infoEstado(tour.estado).texto }}</span>
+      <span class="etiqueta" [class]="infoDificultad(tour.dificultad).clase">{{ infoDificultad(tour.dificultad).texto }}</span>
+    </div>
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-primary" [routerLink]="['/tours', tour.id, 'editar']">Editar</a>
+      <button class="btn btn-outline-danger" (click)="eliminar()">Eliminar</button>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-lg-8">
+      <div class="card p-4 h-100">
+        <h5 class="mb-3">Informacion del tour</h5>
+        <p class="text-muted">{{ tour.descripcion || 'Sin descripcion' }}</p>
+
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <small class="text-muted d-block">Fecha de salida</small>
+            <span class="fw-semibold">{{ tour.fecha_salida | date: 'fullDate' }}</span>
+          </div>
+          <div class="col-sm-6">
+            <small class="text-muted d-block">Duracion</small>
+            <span class="fw-semibold">{{ tour.duracion_horas }} horas</span>
+          </div>
+          <div class="col-sm-6">
+            <small class="text-muted d-block">Punto de encuentro</small>
+            <span class="fw-semibold">{{ tour.punto_encuentro }}</span>
+          </div>
+          <div class="col-sm-6">
+            <small class="text-muted d-block">Guia</small>
+            <span class="fw-semibold">{{ tour.guia }}</span>
+          </div>
+          <div class="col-sm-6">
+            <small class="text-muted d-block">Precio por persona</small>
+            <span class="fw-semibold">{{ tour.precio | currency }}</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <h6>Ocupacion</h6>
+        <div class="progress mb-2" style="height: 22px">
+          <div class="progress-bar bg-warning text-dark" [style.width.%]="porcentajeOcupacion">
+            {{ porcentajeOcupacion }}%
+          </div>
+        </div>
+        <small class="text-muted">
+          {{ tour.cupos_reservados }} reservados de {{ tour.cupo_maximo }} &middot;
+          <strong>{{ tour.cupos_disponibles }} disponibles</strong>
+        </small>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card p-4 mb-3 text-white" style="background-color: var(--tc-negro)">
+        <small class="text-white-50">Volcan</small>
+        <h4 class="mb-1">{{ tour.volcan_nombre }}</h4>
+        <div>{{ tour.volcan_departamento }}</div>
+        <div class="fs-5 mt-2">{{ tour.volcan_altura_m | number }} m s. n. m.</div>
+      </div>
+
+      <div class="card p-4">
+        <h6 class="mb-3">Cambiar estado</h6>
+        <div class="d-grid gap-2">
+          @for (e of estados; track e.valor) {
+            <button
+              class="btn btn-sm"
+              [class.btn-dark]="tour.estado === e.valor"
+              [class.btn-outline-dark]="tour.estado !== e.valor"
+              [disabled]="tour.estado === e.valor"
+              (click)="cambiarEstado(e.valor)"
+            >
+              {{ e.texto }}
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+}

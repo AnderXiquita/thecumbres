@@ -1,0 +1,33 @@
+:root {
+  --tc-negro: #05090a;
+  --tc-negro-2: #0e191e;
+  --tc-acento: #1f3b4d;
+  --tc-acento-hover: #162c3a;
+  --tc-fondo: #eef1f2;
+}
+
+body {
+  background-color: var(--tc-fondo);
+}
+
+.btn-acento {
+  background-color: var(--tc-acento);
+  border-color: var(--tc-acento);
+  color: #fff;
+}
+
+.btn-acento:hover {
+  background-color: var(--tc-acento-hover);
+  border-color: var(--tc-acento-hover);
+  color: #fff;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.etiqueta {
+  font-weight: 600;
+  font-size: 0.875rem;
+}

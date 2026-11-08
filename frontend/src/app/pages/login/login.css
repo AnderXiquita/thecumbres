@@ -1,0 +1,14 @@
+.login-fondo {
+  min-height: 100vh;
+  background-image:
+  linear-gradient(rgba(5, 9, 10, 0.55), rgba(5, 9, 10, 0.55)),
+  url('/fondo_login.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+}
+
