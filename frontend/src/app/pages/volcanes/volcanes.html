@@ -44,7 +44,7 @@
             {{ volcanEditando ? 'Actualizar' : 'Agregar' }}
           </button>
           @if (volcanEditando) {
-            <button type="button" class="btn btn-outline-secondary" (click)="cancelar()">Cancelar</button>
+            <button type="button" class="btn btn-secundario" (click)="cancelar()">Cancelar</button>
           }
         </div>
       </form>
@@ -75,8 +75,8 @@
                 <td class="text-nowrap">{{ v.altura_m | number }} m</td>
                 <td>{{ v.total_tours }}</td>
                 <td class="text-end text-nowrap">
-                  <button class="btn btn-sm btn-outline-primary" (click)="editar(v)">Editar</button>
-                  <button class="btn btn-sm btn-outline-danger ms-1" (click)="eliminar(v)">Eliminar</button>
+                  <button class="btn btn-sm btn-secundario" (click)="editar(v)">Editar</button>
+                  <button class="btn btn-sm btn-secundario ms-1" (click)="eliminar(v)">Eliminar</button>
                 </td>
               </tr>
             } @empty {

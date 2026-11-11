@@ -25,6 +25,7 @@ export class Login {
   ingresar(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      this.error = 'Ingresa tu usuario y contraseña';
       return;
     }
 

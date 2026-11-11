@@ -1,20 +1,20 @@
 import { Dificultad, EstadoTour } from '../models/tour.model';
 
-export const DIFICULTADES: { valor: Dificultad; texto: string; clase: string }[] = [
-  { valor: 'facil', texto: 'Facil', clase: 'text-success' },
-  { valor: 'moderada', texto: 'Moderada', clase: 'text-warning-emphasis' },
-  { valor: 'dificil', texto: 'Dificil', clase: 'text-danger' },
+export const DIFICULTADES: { valor: Dificultad; texto: string; nivel: number }[] = [
+  { valor: 'facil', texto: 'Fácil', nivel: 1 },
+  { valor: 'moderada', texto: 'Moderada', nivel: 2 },
+  { valor: 'dificil', texto: 'Difícil', nivel: 3 },
 ];
 
 export const ESTADOS: { valor: EstadoTour; texto: string; clase: string }[] = [
-  { valor: 'programado', texto: 'Programado', clase: 'text-primary' },
-  { valor: 'completo', texto: 'Completo', clase: 'text-info-emphasis' },
-  { valor: 'cancelado', texto: 'Cancelado', clase: 'text-secondary' },
-  { valor: 'finalizado', texto: 'Finalizado', clase: 'text-body-tertiary' },
+  { valor: 'programado', texto: 'Programado', clase: 'estado-programado' },
+  { valor: 'completo', texto: 'Completo', clase: 'estado-completo' },
+  { valor: 'cancelado', texto: 'Cancelado', clase: 'estado-cancelado' },
+  { valor: 'finalizado', texto: 'Finalizado', clase: 'estado-finalizado' },
 ];
 
 export function infoDificultad(valor: string) {
-  return DIFICULTADES.find((d) => d.valor === valor) ?? { valor, texto: valor, clase: 'text-body' };
+  return DIFICULTADES.find((d) => d.valor === valor) ?? { valor, texto: valor, nivel: 0 };
 }
 
 export function infoEstado(valor: string) {

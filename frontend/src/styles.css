@@ -4,6 +4,9 @@
   --tc-acento: #1f3b4d;
   --tc-acento-hover: #162c3a;
   --tc-fondo: #eef1f2;
+
+  --tc-fuente-logo: 'Unbounded', sans-serif;
+  --bs-body-font-family: 'Manrope', sans-serif;
 }
 
 body {
@@ -11,15 +14,32 @@ body {
 }
 
 .btn-acento {
-  background-color: var(--tc-acento);
-  border-color: var(--tc-acento);
-  color: #fff;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--tc-negro-2);
+  --bs-btn-border-color: var(--tc-negro-2);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #1c2d35;
+  --bs-btn-hover-border-color: #1c2d35;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #1c2d35;
+  --bs-btn-active-border-color: #1c2d35;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--tc-negro-2);
+  --bs-btn-disabled-border-color: var(--tc-negro-2);
 }
 
-.btn-acento:hover {
-  background-color: var(--tc-acento-hover);
-  border-color: var(--tc-acento-hover);
-  color: #fff;
+.btn-secundario {
+  --bs-btn-color: var(--tc-negro-2);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: rgba(14, 25, 30, 0.3);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--tc-negro-2);
+  --bs-btn-hover-border-color: var(--tc-negro-2);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--tc-negro-2);
+  --bs-btn-active-border-color: var(--tc-negro-2);
+  --bs-btn-disabled-color: var(--tc-negro-2);
+  --bs-btn-disabled-border-color: rgba(14, 25, 30, 0.3);
 }
 
 .card {
@@ -30,4 +50,165 @@ body {
 .etiqueta {
   font-weight: 600;
   font-size: 0.875rem;
+}
+
+.logo {
+  font-family: var(--tc-fuente-logo);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-family: var(--tc-fuente-logo);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.etiqueta-seccion {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6b7a80;
+}
+
+.navbar {
+  background-color: var(--tc-negro-2) !important;
+}
+
+.navbar .nav-link { 
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.table-light {
+  --bs-table-bg: transparent;
+}
+
+.table thead th {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7a80;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--tc-acento);
+  box-shadow: 0 0 0 0.2rem rgba(31, 59, 77, 0.15);
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7a80;
+}
+
+.filtros .form-control,
+.filtros .form-select,
+.filtros .btn {
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.boton-salir {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border-color: rgba(243, 246, 247, 0.3);
+}
+
+.estado-programado,
+.estado-completo,
+.estado-cancelado,
+.estado-finalizado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.estado-programado::before,
+.estado-completo::before,
+.estado-cancelado::before,
+.estado-finalizado::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.estado-programado,
+.estado-completo {
+  color: var(--tc-negro-2);
+}
+
+.estado-cancelado,
+.estado-finalizado {
+  color: #8a979c;
+}
+
+.estado-programado::before {
+  background-color: #3d6a85;
+}
+
+.estado-completo::before {
+  background-color: var(--tc-negro-2);
+}
+
+.estado-cancelado::before {
+  background-color: #b5c0c4;
+}
+
+.estado-finalizado::before {
+  border: 1.5px solid #b5c0c4;
+}
+.enlace-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tc-negro-2);
+  text-decoration: none;
+  border: 1px solid rgba(14, 25, 30, 0.2);
+  border-radius: var(--bs-border-radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.enlace-volver:hover {
+  background-color: var(--tc-negro-2);
+  border-color: var(--tc-negro-2);
+  color: #fff;
+}
+
+.enlace-volver i {
+  transition: transform 0.2s ease;
+}
+
+.enlace-volver:hover i {
+  transform: translateX(-3px);
+}
+
+.progress {
+  --bs-progress-bg: #dde3e5;
+}
+
+.barra-ocupacion {
+  --bs-progress-bar-bg: var(--tc-acento);
+  --bs-progress-bar-color: #fff;
+  font-weight: 600;
+}
+
+.boton-estado {
+  --bs-btn-disabled-opacity: 1;
 }

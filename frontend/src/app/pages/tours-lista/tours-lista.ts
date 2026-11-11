@@ -7,11 +7,12 @@ import { ToursService } from '../../core/tours.service';
 import { VolcanesService } from '../../core/volcanes.service';
 import { FiltrosTour, ResumenTours, Tour } from '../../models/tour.model';
 import { Volcan } from '../../models/volcan.model';
-import { DIFICULTADES, ESTADOS, infoDificultad, infoEstado } from '../../shared/etiquetas';
+import { DIFICULTADES, ESTADOS, infoEstado } from '../../shared/etiquetas';
+import { DificultadIndicador } from '../../shared/dificultad/dificultad';
 
 @Component({
   selector: 'app-tours-lista',
-  imports: [FormsModule, RouterLink, CurrencyPipe, DatePipe],
+  imports: [FormsModule, RouterLink, CurrencyPipe, DatePipe, DificultadIndicador],
   templateUrl: './tours-lista.html',
 })
 export class ToursLista implements OnInit {
@@ -28,7 +29,6 @@ export class ToursLista implements OnInit {
 
   dificultades = DIFICULTADES;
   estados = ESTADOS;
-  infoDificultad = infoDificultad;
   infoEstado = infoEstado;
 
   ngOnInit(): void {

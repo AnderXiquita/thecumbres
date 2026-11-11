@@ -1,41 +1,48 @@
-<div class="login-fondo d-flex align-items-center justify-content-center">
-  <div class="card login-card p-4">
-    <div class="text-center mb-4">
-      <h1 class="h3 fw-bold mb-1">TheCumbres</h1>
-      <p class="text-muted mb-0">Gestion de tours a volcanes de Guatemala</p>
+<div class="login">
+  <div>
+    <header class="login-top">
+      <span>Guatemala · Tierra de volcanes</span>
+      <span>14.50° N · 90.88° O</span>
+    </header>
+
+    <h1 class="logo login-logo">TheCumbres</h1>
+    <p class="login-lema">Gestión de tours a volcanes de Guatemala</p>
+  </div>
+
+    <form class="login-panel" [formGroup]="form" (ngSubmit)="ingresar()">
+    <span class="panel-etiqueta">Acceso</span>
+    <h2 class="logo panel-titulo">Inicia sesión</h2>
+
+    @if (error) {
+      <div class="login-error">{{ error }}</div>
+    }
+
+    <div class="campo">
+      <label for="usuario">Usuario</label>
+      <input
+        id="usuario"
+        class="form-control login-input"
+        formControlName="usuario"
+        autocomplete="username"
+        [class.is-invalid]="form.controls.usuario.invalid && form.controls.usuario.touched"
+      />
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="ingresar()">
-      <div class="mb-3">
-        <label class="form-label" for="usuario">Usuario</label>
-        <input
-          id="usuario"
-          class="form-control"
-          formControlName="usuario"
-          [class.is-invalid]="form.controls.usuario.invalid && form.controls.usuario.touched"
-        />
-        <div class="invalid-feedback">El usuario es obligatorio</div>
-      </div>
+    <div class="campo">
+      <label for="password">Contraseña</label>
+      <input
+        id="password"
+        type="password"
+        class="form-control login-input"
+        formControlName="password"
+        autocomplete="current-password"
+        [class.is-invalid]="form.controls.password.invalid && form.controls.password.touched"
+      />
+    </div>
 
-      <div class="mb-3">
-        <label class="form-label" for="password">Contrasena</label>
-        <input
-          id="password"
-          type="password"
-          class="form-control"
-          formControlName="password"
-          [class.is-invalid]="form.controls.password.invalid && form.controls.password.touched"
-        />
-        <div class="invalid-feedback">La contrasena es obligatoria</div>
-      </div>
-
-      @if (error) {
-        <div class="alert alert-danger py-2">{{ error }}</div>
-      }
-
-      <button type="submit" class="btn btn-acento w-100" [disabled]="cargando">
-        {{ cargando ? 'Ingresando...' : 'Ingresar' }}
-      </button>
-    </form>
-  </div>
+    <button type="submit" class="btn login-boton" [disabled]="cargando">
+      {{ cargando ? 'Ingresando...' : 'Ingresar' }}
+      <span aria-hidden="true">&rarr;</span>
+    </button>
+  </form>
 </div>

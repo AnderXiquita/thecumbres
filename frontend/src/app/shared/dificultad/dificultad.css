@@ -1,0 +1,42 @@
+.dificultad {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.barra {
+  width: 5px;
+  border-radius: 2px;
+  background-color: #d5dcdf;
+}
+
+.dif-facil .barra.activa {
+  background-color: #4f7a64;
+}
+
+.dif-moderada .barra.activa {
+  background-color: #a07c2c;
+}
+
+.dif-dificil .barra.activa {
+  background-color: #7b2433;
+}
+
+.texto {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.dif-facil .texto {
+  color: #4f7a64;
+}
+
+.dif-moderada .texto {
+  color: #a07c2c;
+}
+
+.dif-dificil .texto {
+  color: #7b2433;
+}

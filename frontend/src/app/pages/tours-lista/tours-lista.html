@@ -40,7 +40,7 @@
   </div>
 }
 
-<div class="card p-3 mb-3">
+<div class="card p-3 mb-3 filtros">
   <div class="row g-2 align-items-end">
     <div class="col-md-4">
       <label class="form-label small mb-1">Buscar</label>
@@ -79,8 +79,8 @@
       </select>
     </div>
     <div class="col-md-2 d-flex gap-2">
-      <button class="btn btn-dark w-100" (click)="buscar()">Buscar</button>
-      <button class="btn btn-outline-secondary w-100" (click)="limpiar()">Limpiar</button>
+      <button class="btn btn-acento w-100" (click)="buscar()">Buscar</button>
+      <button class="btn btn-secundario w-100" (click)="limpiar()">Limpiar</button>
     </div>
   </div>
 </div>
@@ -115,17 +115,19 @@
               <td>{{ tour.volcan_nombre }}</td>
               <td>{{ tour.fecha_salida | date: 'd MMM y' }}</td>
               <td>
-                <span class="etiqueta" [class]="infoDificultad(tour.dificultad).clase">
+                <app-dificultad [valor]="tour.dificultad" />
               </td>
               <td>{{ tour.precio | currency }}</td>
               <td>{{ tour.cupos_disponibles }} / {{ tour.cupo_maximo }}</td>
               <td>
                 <span class="etiqueta" [class]="infoEstado(tour.estado).clase">
+                  {{ infoEstado(tour.estado).texto }}
+                </span>
               </td>
               <td class="text-end text-nowrap">
-                <a class="btn btn-sm btn-outline-dark" [routerLink]="['/tours', tour.id]">Ver</a>
-                <a class="btn btn-sm btn-outline-primary ms-1" [routerLink]="['/tours', tour.id, 'editar']">Editar</a>
-                <button class="btn btn-sm btn-outline-danger ms-1" (click)="eliminar(tour)">Eliminar</button>
+                <a class="btn btn-sm btn-secundario" [routerLink]="['/tours', tour.id]">Ver</a>
+                <a class="btn btn-sm btn-secundario ms-1" [routerLink]="['/tours', tour.id, 'editar']">Editar</a>
+                <button class="btn btn-sm btn-secundario ms-1" (click)="eliminar(tour)">Eliminar</button>
               </td>
             </tr>
           } @empty {

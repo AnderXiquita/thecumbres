@@ -1,8 +1,16 @@
 # TheCumbres
 
-Sistema web para la gestion de tours a volcanes de Guatemala. Permite administrar las salidas programadas (fechas, cupos, precios, guias y estado) y el catalogo de volcanes donde se realizan.
+Sistema web para la gestión de tours a volcanes de Guatemala. Permite administrar las salidas programadas (fechas, cupos, precios, guías y estado) y el catálogo de volcanes donde se realizan.
 
-Proyecto final del curso de Desarrollo Web — Ander Abimael Lopez Xiquita.
+## Sobre este proyecto
+
+TheCumbres es un proyecto pequeño a propósito. Lo construí para reforzar los fundamentos de herramientas que ya uso en mi trabajo diario, entendiendo cada pieza en lugar de solo hacerla funcionar:
+
+- **Angular**: cómo se conectan componentes, servicios, rutas, guards e interceptores, y cuándo conviene un formulario reactivo o uno basado en plantilla.
+- **Backend con Node y Express**: la separación entre rutas, controladores y middleware, el manejo centralizado de errores y la autenticación con JWT.
+- **MySQL**: consultas parametrizadas, `JOIN` y agregaciones, y reglas de integridad en la propia base de datos (llaves foráneas y `CHECK`), complementadas con validaciones en el servidor y en la interfaz.
+
+La idea fue llevar un CRUD completo de punta a punta, del diseño de la base de datos a la interfaz, y poder explicar por qué cada decisión está donde está.
 
 ## Tecnologias
 

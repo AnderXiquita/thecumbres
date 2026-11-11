@@ -1,0 +1,13 @@
+<span
+  class="dificultad"
+  [class]="'dif-' + info.valor"
+  [title]="'Dificultad: ' + info.texto"
+  [attr.aria-label]="'Dificultad: ' + info.texto"
+>
+  @for (n of niveles; track n) {
+    <span class="barra" [class.activa]="n <= info.nivel" [style.height.px]="4 + n * 4"></span>
+  }
+  @if (conTexto) {
+    <span class="texto">{{ info.texto }}</span>
+  }
+</span>

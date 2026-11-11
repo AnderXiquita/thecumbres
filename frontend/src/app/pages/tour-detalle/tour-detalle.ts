@@ -4,11 +4,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { ToursService } from '../../core/tours.service';
 import { EstadoTour, Tour } from '../../models/tour.model';
-import { ESTADOS, infoDificultad, infoEstado } from '../../shared/etiquetas';
+import { ESTADOS, infoEstado } from '../../shared/etiquetas';
+import { DificultadIndicador } from '../../shared/dificultad/dificultad';
 
 @Component({
   selector: 'app-tour-detalle',
-  imports: [RouterLink, CurrencyPipe, DatePipe, DecimalPipe],
+  imports: [RouterLink, CurrencyPipe, DatePipe, DecimalPipe, DificultadIndicador],
   templateUrl: './tour-detalle.html',
 })
 export class TourDetalle implements OnInit {
@@ -19,7 +20,6 @@ export class TourDetalle implements OnInit {
   tour: Tour | null = null;
   error = '';
   estados = ESTADOS;
-  infoDificultad = infoDificultad;
   infoEstado = infoEstado;
 
   ngOnInit(): void {

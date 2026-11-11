@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand navbar-dark" style="background-color: var(--tc-negro)">
+<nav class="navbar navbar-expand navbar-dark">
   <div class="container">
-    <a class="navbar-brand fw-bold" routerLink="/tours">TheCumbres</a>
+    <a class="navbar-brand logo" routerLink="/tours">TheCumbres</a>
 
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
@@ -12,7 +12,13 @@
     </ul>
 
     <span class="navbar-text me-3">{{ usuario?.nombre }}</span>
-    <button class="btn btn-outline-light btn-sm" (click)="salir()">Salir</button>
+    <button
+      class="btn btn-outline-light btn-sm boton-salir"
+      (click)="salir()"
+      title="Cerrar sesión"
+      aria-label="Cerrar sesión">
+      <i class="bi bi-power"></i>
+    </button>
   </div>
 </nav>
 
